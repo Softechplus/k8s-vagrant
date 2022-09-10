@@ -65,14 +65,14 @@ Vagrant.configure("2") do |config|
         node.vm.network :public_network, ip: IP_NW + "#{MASTER_IP_START + i}"
         node.vm.network "forwarded_port", guest: 22, host: "#{2710 + i}"
 
-        node.vm.provision "setup-hosts", :type => "shell", :path => "ubuntu/vagrant/setup-hosts.sh" do |s|
+        node.vm.provision "setup-hosts", :type => "shell", :path => "setup-hosts.sh" do |s|
           s.args = ["enp0s8"]
         end
-        node.vm.provision "setup-dns", type: "shell", :path => "ubuntu/update-dns.sh"
-        node.vm.provision "setup-user", type: "shell", :path => "ravi/setupuser.sh"
-        node.vm.provision "setup-docker", type: "shell", :path => "ravi/installDocker.sh"
-        node.vm.provision "setup-cridocker", type: "shell", :path => "ravi/installCRIDockerd.sh"
-        node.vm.provision "setup-kuber", type: "shell", :path => "ravi/installK8S.sh"
+        node.vm.provision "setup-dns", type: "shell", :path => "update-dns.sh"
+        node.vm.provision "setup-user", type: "shell", :path => "setupuser.sh"
+        node.vm.provision "setup-docker", type: "shell", :path => "installDocker.sh"
+        node.vm.provision "setup-cridocker", type: "shell", :path => "installCRIDockerd.sh"
+        node.vm.provision "setup-kuber", type: "shell", :path => "installK8S.sh"
 
       end
   end
@@ -89,15 +89,15 @@ Vagrant.configure("2") do |config|
         node.vm.network :public_network, ip: IP_NW + "#{NODE_IP_START + i}"
                 node.vm.network "forwarded_port", guest: 22, host: "#{2720 + i}"
 
-        node.vm.provision "setup-hosts", :type => "shell", :path => "ubuntu/vagrant/setup-hosts.sh" do |s|
+        node.vm.provision "setup-hosts", :type => "shell", :path => "setup-hosts.sh" do |s|
           s.args = ["enp0s8"]
         end
 
-        node.vm.provision "setup-dns", type: "shell", :path => "ubuntu/update-dns.sh"
-        node.vm.provision "setup-user", type: "shell", :path => "ravi/setupuser.sh"
-        node.vm.provision "setup-docker", type: "shell", :path => "ravi/installDocker.sh"
-        node.vm.provision "setup-cridocker", type: "shell", :path => "ravi/installCRIDockerd.sh"
-        node.vm.provision "setup-kuber", type: "shell", :path => "ravi/installK8S.sh"
+        node.vm.provision "setup-dns", type: "shell", :path => "update-dns.sh"
+        node.vm.provision "setup-user", type: "shell", :path => "setupuser.sh"
+        node.vm.provision "setup-docker", type: "shell", :path => "installDocker.sh"
+        node.vm.provision "setup-cridocker", type: "shell", :path => "installCRIDockerd.sh"
+        node.vm.provision "setup-kuber", type: "shell", :path => "installK8S.sh"
 
     end
   end
